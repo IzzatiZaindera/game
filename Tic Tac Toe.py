@@ -16,13 +16,13 @@ def player_move(icon):
         number = 1
     elif icon == 'O':
         number = 2
-    print("Your turn player {}".format(number))
-    choice = int(input("Enter your move (1-9): ").strip())
+    print("Player {}".format(number))
+    choice = int(input("Choose (1-9): ").strip())
     if board[choice - 1] == ' ':
         board[choice - 1] = icon
     else:
         print()
-        print("That space is already taken!")
+        print("Space already taken!")
 
 def is_victory(icon):
     win_combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
@@ -42,12 +42,12 @@ def main():
         player_move('X')
         print_board()
         if is_victory('X'):
-            print("X wins! Congratulations!")
+            print("Player 1 wins! Congrats!")
             break
         player_move('O')
         print_board()
         if is_victory('O'):
-            print("O wins! Congratulations!")
+            print("Player 2 wins! Congrats!")
             break
 
 main()
